@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pt-BR" data-brand="proddyt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marca Proddyt</title>
+<meta name="description" content="Identidade visual Proddyt, Proddyt Labs e Proddyt Studio — símbolo, cores, tipografia e componentes.">
+<link rel="icon" href="marks/proddyt-mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="base.css">
+<script src="theme.js"></script>
+<style>
+  .swatches { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .swatch { display: flex; flex-direction: column; gap: 6px; }
+  .swatch div { height: 84px; border-radius: 12px; border: 1px solid var(--line); }
+  .marks { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+  .lockup { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 2rem; letter-spacing: -0.03em; }
+  .lockup img { width: 56px; height: 56px; border-radius: 14px; }
+  .lockup small { display: block; font: 500 1rem var(--font-mono); letter-spacing: 0; }
+  .apps { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); }
+  .apps figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: .9rem; }
+  .apps img { width: 64px; height: 64px; }
+  pre { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; overflow-x: auto; font-size: .85rem; }
+</style>
+</head>
+<body>
+<header class="p-header">
+  <div class="p-container">
+    <a class="p-logo" href="./"><img class="p-mark" src="marks/proddyt-mark.svg" alt=""> proddyt <span class="p-logo-suffix">brand</span></a>
+    <nav class="p-nav" aria-label="Seções">
+      <a href="#marcas">Marcas</a>
+      <a href="#cores">Cores</a>
+      <a href="#tipo">Tipografia</a>
+      <a href="#studio">Studio</a>
+      <a href="#usar">Usar</a>
+    </nav>
+    <button class="p-icon-btn" type="button" data-theme-toggle></button>
+  </div>
+</header>
+
+<main>
+  <section class="p-container p-hero">
+    <span class="p-eyebrow">Identidade visual · v1</span>
+    <h1>Uma marca, três frentes.</h1>
+    <p>Proddyt é a assinatura pessoal. Proddyt Labs é o laboratório. Proddyt Studio é a suíte de apps. Mesmo símbolo <code>/·/</code>, uma cor chapada para cada.</p>
+    <div class="p-actions">
+      <a class="p-btn" href="#usar">Usar nos sites</a>
+      <a class="p-btn p-btn-ghost" href="https://github.com/Proddyt-Labs/brand">GitHub</a>
+    </div>
+  </section>
+
+  <section class="p-section" id="marcas">
+    <div class="p-container" style="display:flex;flex-direction:column;gap:24px">
+      <h2>Marcas</h2>
+      <div class="marks">
+        <div class="p-card"><span class="p-eyebrow">Pessoa</span><div class="lockup"><img src="marks/proddyt-mark.svg" alt=""><span>proddyt</span></div><p class="p-muted">Portfólio, perfil GitHub, proddyt.com.</p></div>
+        <div class="p-card"><span class="p-eyebrow">Laboratório</span><div class="lockup"><img src="marks/labs-mark.svg" alt=""><span>proddyt<small style="color:var(--labs-text)">~/labs</small></span></div><p class="p-muted">Homelab, home, tvbox, craft, tools.</p></div>
+        <div class="p-card"><span class="p-eyebrow">Suíte</span><div class="lockup"><img src="marks/studio-mark.svg" alt=""><span>proddyt<small style="color:var(--studio-text)">studio</small></span></div><p class="p-muted">12 apps de criação e escritório.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-section" id="cores">
+    <div class="p-container" style="display:flex;flex-direction:column;gap:24px">
+      <h2>Cores</h2>
+      <div class="swatches">
+        <div class="swatch"><div style="background:var(--proddyt)"></div><strong>Proddyt</strong><code class="p-muted">#7C4DFF</code></div>
+        <div class="swatch"><div style="background:var(--labs)"></div><strong>Labs</strong><code class="p-muted">#2F5BFF</code></div>
+        <div class="swatch"><div style="background:var(--studio)"></div><strong>Studio</strong><code class="p-muted">#E8462A</code></div>
+        <div class="swatch"><div style="background:var(--bg)"></div><strong>Fundo</strong><code class="p-muted">--bg</code></div>
+        <div class="swatch"><div style="background:var(--surface)"></div><strong>Superfície</strong><code class="p-muted">--surface</code></div>
+        <div class="swatch"><div style="background:var(--text)"></div><strong>Texto</strong><code class="p-muted">--text</code></div>
+      </div>
+      <p class="p-muted">Troque o tema no botão do topo: fundo, superfície e texto mudam; as cores de marca ficam.</p>
+    </div>
+  </section>
+
+  <section class="p-section" id="tipo">
+    <div class="p-container" style="display:flex;flex-direction:column;gap:16px">
+      <h2>Tipografia</h2>
+      <p style="font-size:2.4rem;font-weight:700;letter-spacing:-.03em;line-height:1.1">IBM Plex Sans — títulos e texto</p>
+      <p class="p-mono" style="font-size:1.2rem;color:var(--brand-text)">IBM Plex Mono — rótulos, código, versões</p>
+    </div>
+  </section>
+
+  <section class="p-section" id="studio">
+    <div class="p-container" style="display:flex;flex-direction:column;gap:24px">
+      <h2>Proddyt Studio</h2>
+      <div class="apps">
+        <figure><img src="marks/apps/printcraft.png" alt=""><figcaption>Print</figcaption></figure>
+        <figure><img src="marks/apps/photocraft.png" alt=""><figcaption>Photo</figcaption></figure>
+        <figure><img src="marks/apps/vectorcraft.png" alt=""><figcaption>Vector</figcaption></figure>
+        <figure><img src="marks/apps/lightcraft.png" alt=""><figcaption>Light</figcaption></figure>
+        <figure><img src="marks/apps/filmcraft.png" alt=""><figcaption>Film</figcaption></figure>
+        <figure><img src="marks/apps/effectcraft.png" alt=""><figcaption>Effect</figcaption></figure>
+        <figure><img src="marks/apps/designcraft.png" alt=""><figcaption>Design</figcaption></figure>
+        <figure><img src="marks/apps/soundcraft.png" alt=""><figcaption>Sound</figcaption></figure>
+        <figure><img src="marks/apps/wordcraft.png" alt=""><figcaption>Word</figcaption></figure>
+        <figure><img src="marks/apps/gridcraft.png" alt=""><figcaption>Grid</figcaption></figure>
+        <figure><img src="marks/apps/deckcraft.png" alt=""><figcaption>Deck</figcaption></figure>
+        <figure><img src="marks/apps/cadcraft.png" alt=""><figcaption>CAD</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-section" id="usar">
+    <div class="p-container" style="display:flex;flex-direction:column;gap:16px">
+      <h2>Usar nos sites</h2>
+      <p class="p-muted">Cole no <code>&lt;head&gt;</code> e marque a frente no <code>&lt;html data-brand&gt;</code> (<code>proddyt</code>, <code>labs</code> ou <code>studio</code>).</p>
+<pre><code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Proddyt-Labs/brand@1/tokens.css"&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Proddyt-Labs/brand@1/base.css"&gt;
+&lt;script src="https://cdn.jsdelivr.net/gh/Proddyt-Labs/brand@1/theme.js"&gt;&lt;/script&gt;</code></pre>
+    </div>
+  </section>
+</main>
+
+<footer class="p-footer">
+  <div class="p-container">
+    <span>Proddyt · Proddyt Labs · Proddyt Studio</span>
+    <a href="https://github.com/Proddyt-Labs/brand">Proddyt-Labs/brand</a>
+  </div>
+</footer>
+</body>
+</html>

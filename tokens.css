@@ -1,0 +1,73 @@
+/* Proddyt — design tokens (SSOT: ORGANIZATIONS/PRODDYT/MARCA.md)
+   Tema: claro por padrão; escuro via prefers-color-scheme ou [data-theme="dark"].
+   Marca por site: <html data-brand="proddyt|labs|studio"> define --brand. */
+
+:root {
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+
+  /* cores de marca (fill — iguais nos 2 temas, texto branco por cima) */
+  --proddyt: #7C4DFF;
+  --labs: #2F5BFF;
+  --studio: #E8462A;
+
+  /* tema claro (Papel) */
+  --bg: #F3F0E8;
+  --surface: #FFFFFF;
+  --line: #DAD5C8;
+  --text: #17161A;
+  --muted: #5E5A52;
+  --proddyt-text: #6A3DF0;
+  --labs-text: #2F5BFF;
+  --studio-text: #C7351B;
+
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-icon: 20px;
+
+  --brand: var(--proddyt);
+  --brand-text: var(--proddyt-text);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B0A10;
+    --surface: #15131D;
+    --line: #2A2635;
+    --text: #F2EEFA;
+    --muted: #A69FB8;
+    --proddyt-text: #A98BF0;
+    --labs-text: #7B98FF;
+    --studio-text: #FF7A5C;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0B0A10;
+  --surface: #15131D;
+  --line: #2A2635;
+  --text: #F2EEFA;
+  --muted: #A69FB8;
+  --proddyt-text: #A98BF0;
+  --labs-text: #7B98FF;
+  --studio-text: #FF7A5C;
+}
+
+:root[data-brand="labs"] { --brand: var(--labs); --brand-text: var(--labs-text); }
+:root[data-brand="studio"] { --brand: var(--studio); --brand-text: var(--studio-text); }
+
+/* ícones dos apps do Studio (fill pastel, código em #17161A nos 2 temas) */
+:root {
+  --app-print: #FF9A85;
+  --app-photo: #8EC5FF;
+  --app-vector: #FFCB66;
+  --app-light: #B5E3FF;
+  --app-film: #C9B2FF;
+  --app-effect: #E2B0FF;
+  --app-design: #FFB3D4;
+  --app-sound: #9BEEDC;
+  --app-word: #A9C2FF;
+  --app-grid: #A6EBC0;
+  --app-deck: #FFBD94;
+  --app-cad: #E9F08A;
+}

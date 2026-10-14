@@ -1,0 +1,116 @@
+/* Proddyt — base styles shared by every site. Requires tokens.css first.
+   Classes are prefixed p- so they never clash with a site's own CSS. */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; color-scheme: light dark; }
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { margin: 0; line-height: 1.15; font-weight: 700; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); letter-spacing: -0.035em; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+h3 { font-size: 1.15rem; }
+p { margin: 0; }
+img, svg { max-width: 100%; }
+code, kbd, pre, .p-mono { font-family: var(--font-mono); }
+
+a { color: var(--brand-text); text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--brand-text); outline-offset: 3px; border-radius: 4px; }
+
+.p-container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+@media (max-width: 600px) { .p-container { padding: 0 16px; } }
+
+.p-muted { color: var(--muted); }
+.p-eyebrow {
+  font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--muted);
+}
+
+/* ---- Header ---- */
+.p-header {
+  position: sticky; top: 0; z-index: 20;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.p-header .p-container { display: flex; align-items: center; gap: 24px; min-height: 64px; flex-wrap: wrap; }
+.p-nav { display: flex; gap: 4px; flex-wrap: wrap; margin-left: auto; }
+.p-nav a {
+  color: var(--muted); text-decoration: none; padding: 8px 12px; border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+}
+.p-nav a:hover, .p-nav a[aria-current="page"] { color: var(--text); background: var(--surface); }
+
+/* ---- Logo lockup: <a class="p-logo"><img class="p-mark" src=".../proddyt-mark.svg" alt=""> proddyt <span class="p-logo-suffix">~/labs</span></a> ---- */
+.p-logo {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--text); text-decoration: none; font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em;
+}
+.p-mark { width: 32px; height: 32px; border-radius: 8px; display: block; }
+.p-logo-suffix { font-family: var(--font-mono); font-weight: 500; color: var(--brand-text); letter-spacing: 0; }
+
+/* ---- Buttons ---- */
+.p-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 0 20px; border-radius: var(--radius-sm);
+  font: 600 0.95rem var(--font-sans); text-decoration: none; cursor: pointer;
+  border: 1px solid transparent; background: var(--brand); color: #FFFFFF;
+}
+.p-btn:hover { filter: brightness(1.08); text-decoration: none; }
+.p-btn-ghost { background: transparent; color: var(--text); border-color: var(--line); }
+.p-btn-ghost:hover { background: var(--surface); filter: none; }
+.p-icon-btn {
+  width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-sm); border: 1px solid var(--line); background: transparent;
+  color: var(--text); cursor: pointer;
+}
+.p-icon-btn:hover { background: var(--surface); }
+
+/* ---- Cards / grid ---- */
+.p-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); }
+.p-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 24px; display: flex; flex-direction: column; gap: 12px;
+}
+a.p-card { color: inherit; text-decoration: none; transition: border-color .15s, transform .15s; }
+a.p-card:hover { border-color: var(--brand-text); transform: translateY(-2px); }
+
+.p-chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px;
+  font: 500 0.78rem var(--font-mono); border: 1px solid var(--line); color: var(--muted);
+}
+.p-chip-ok { color: #1F7A4D; border-color: currentColor; }
+.p-chip-dev { color: var(--brand-text); border-color: currentColor; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .p-chip-ok { color: #5CD69A; } }
+:root[data-theme="dark"] .p-chip-ok { color: #5CD69A; }
+
+/* ---- App icon (Studio) ---- */
+.p-app-icon {
+  width: 56px; height: 56px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center;
+  font: 700 1.2rem var(--font-mono); color: #17161A; flex: none;
+}
+
+/* ---- Sections / footer ---- */
+.p-section { padding-block: 72px; }
+.p-section + .p-section { border-top: 1px solid var(--line); }
+.p-hero { padding-block: 96px 72px; display: flex; flex-direction: column; gap: 20px; }
+.p-hero p { font-size: 1.15rem; max-width: 640px; color: var(--muted); }
+.p-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.p-footer { border-top: 1px solid var(--line); padding: 32px 0; color: var(--muted); font-size: 0.9rem; }
+.p-footer .p-container { display: flex; gap: 16px 32px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+.p-footer a { color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }

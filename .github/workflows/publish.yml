@@ -1,0 +1,54 @@
+# Push to main: republish the reference page (GitHub Pages), tag a new v1.<n>.0 release and purge
+# jsDelivr so every site that links brand@1 picks up the change within minutes.
+# Breaking change: bump MAJOR below to 2 and migrate the sites to @2 one by one.
+name: Publish
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+env:
+  MAJOR: "1"
+
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deploy
+        uses: actions/deploy-pages@v4
+
+  cdn:
+    needs: pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tag release
+        run: |
+          tag="v${MAJOR}.${GITHUB_RUN_NUMBER}.0"
+          git tag "$tag"
+          git push origin "$tag"
+          echo "tagged $tag"
+      - name: Purge jsDelivr
+        run: |
+          sleep 20
+          for f in tokens.css base.css theme.js marks/proddyt-mark.svg marks/labs-mark.svg marks/studio-mark.svg; do
+            curl -fsS "https://purge.jsdelivr.net/gh/Proddyt-Labs/brand@${MAJOR}/$f" > /dev/null && echo "purged $f" || echo "purge failed $f"
+          done
